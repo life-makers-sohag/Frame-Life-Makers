@@ -815,5 +815,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // رسالة ترحيب
-    showToast('مرحباً بك في منصة تركيب الإطارات', 'info');
+    showToast('رمضان كريم', 'info');
+
 });
