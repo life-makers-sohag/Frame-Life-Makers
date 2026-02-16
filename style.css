@@ -1,0 +1,356 @@
+/* Reset and base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.app {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Main layout */
+.main {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Sidebar Panel */
+.panel {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    height: fit-content;
+}
+
+.panel-section {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+
+.panel-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.panel-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.panel-section h3 i {
+    color: #667eea;
+}
+
+/* Frames gallery */
+.frames {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.frames img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.frames img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.frames img.selected {
+    border-color: #667eea;
+    transform: scale(1.05);
+}
+
+/* Form elements */
+input[type="file"],
+input[type="text"],
+input[type="color"],
+input[type="range"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border 0.2s;
+}
+
+input[type="file"] {
+    background: #f7fafc;
+    padding: 8px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+}
+
+/* Buttons */
+button {
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin: 5px 0;
+}
+
+button:hover {
+    background: #5a67d8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: #48bb78;
+}
+
+.btn-primary:hover {
+    background: #38a169;
+}
+
+.btn-secondary {
+    background: #4299e1;
+}
+
+.btn-secondary:hover {
+    background: #3182ce;
+}
+
+.btn-danger {
+    background: #f56565;
+}
+
+.btn-danger:hover {
+    background: #e53e3e;
+}
+
+.btn-large {
+    padding: 14px;
+    font-size: 1.1rem;
+}
+
+.btn-small {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    width: auto;
+    margin: 5px;
+}
+
+.controls-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.controls-row button {
+    flex: 1;
+    min-width: 45px;
+    padding: 10px;
+}
+
+/* Text options */
+.text-options {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* ========== منطقة المعاينة (المعدلة نهائياً) ========== */
+.preview {
+    flex: 2;
+    min-width: 400px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* حاوية الكانفاس - تستخدم flex لعرض الكانفاس في المنتصف */
+.canvas-container {
+    position: relative;   /* لكي يكون مرجعاً للـ loader المطلق */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 20px;
+    /* overflow: hidden;  تم إزالتها مؤقتاً لرؤية الكانفاس كاملاً */
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    background-color: #f0f0f0; /* خلفية رمادية فاتحة لرؤية المساحة */
+}
+
+/* الكانفاس - نضمن ظهوره ووضعه في المقدمة */
+canvas {
+    display: block;
+    background: rgba(255,255,255,0);   /* خلفية شفافة */
+    border-radius: 20px;
+    /* نضمن أن الكانفاس لن يتأثر بأي أنماط خارجية */
+    max-width: 100%;
+    height: auto;
+    z-index: 5;         /* أقل من loader (10) لكن loader يختفي */
+}
+
+/* Loader - يظهر فوق الكانفاس أثناء التحميل */
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* فئة الإخفاء - قوية جداً */
+.hidden {
+    display: none !important;
+}
+
+/* تلميح */
+.hint {
+    margin-top: 20px;
+    color: white;
+    background: rgba(0,0,0,0.2);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .main {
+        flex-direction: column;
+    }
+    
+    .panel, .preview {
+        width: 100%;
+    }
+    
+    .canvas-container {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1; /* يحافظ على الشكل المربع */
+    }
+    
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+}

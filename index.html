@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Frame Life Makers </title>
+    <script src="fabric.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>كل سنة وانت طيب يا صنعاوي</h1>
+            <p>اختر الإطار، ارفع صورتك، وأضف لمستك الخاصة</p>
+        </header>
+        <div class="main">
+            <aside class="panel">
+                <!-- محتوى اللوحة (نفس الكود السابق) -->
+                <section class="panel-section">
+                    <h3><i class="fas fa-images"></i> اختر الإطار</h3>
+                    <div class="frames" id="framesContainer"></div>
+                </section>
+                <section class="panel-section">
+                    <h3><i class="fas fa-upload"></i> رفع الصورة</h3>
+                    <input type="file" id="upload" accept="image/*">
+                    <button id="previewBtn" class="btn-primary"><i class="fas fa-play"></i> تطبيق الصورة</button>
+                </section>
+                <section class="panel-section">
+                    <h3><i class="fas fa-edit"></i> تحكم الصورة</h3>
+                    <div class="controls-row">
+                        <button id="zoomInBtn" title="تكبير"><i class="fas fa-search-plus"></i></button>
+                        <button id="zoomOutBtn" title="تصغير"><i class="fas fa-search-minus"></i></button>
+                        <button id="rotateLeftBtn" title="تدوير لليسار"><i class="fas fa-undo-alt"></i></button>
+                        <button id="rotateRightBtn" title="تدوير لليمين"><i class="fas fa-redo-alt"></i></button>
+                        <button id="resetBtn" title="إعادة ضبط"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                </section>
+                <section class="panel-section">
+                    <h3><i class="fas fa-font"></i> إدارة النصوص</h3>
+                    <div class="text-controls">
+                        <input type="text" id="username" placeholder="اكتب النص هنا">
+                        <button id="addNameBtn" class="btn-secondary"><i class="fas fa-plus-circle"></i> إضافة نص</button>
+                    </div>
+                    <div class="text-options" id="textOptions" style="display: none;">
+                        <!-- خيارات النص -->
+                        <label>الخط:</label>
+                        <select id="fontFamily">
+                            <option value="Cairo">Cairo</option>
+                            <option value="Arial">Arial</option>
+                        </select>
+                        <label>الحجم: <span id="fontSizeVal">40</span></label>
+                        <input type="range" id="fontSize" min="12" max="120" value="40">
+                        <label>اللون:</label>
+                        <input type="color" id="fontColor" value="#ffffff">
+                        <label>خلفية النص:</label>
+                        <input type="color" id="textBgColor" value="#000000">
+                        <label>الشفافية:</label>
+                        <input type="range" id="textOpacity" min="0" max="1" step="0.05" value="1">
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="textBold"> عريض</label>
+                            <label><input type="checkbox" id="textItalic"> مائل</label>
+                            <label><input type="checkbox" id="textUnderline"> تسطير</label>
+                        </div>
+                        <button id="updateTextBtn" class="btn-small"><i class="fas fa-sync-alt"></i> تحديث</button>
+                        <button id="deleteTextBtn" class="btn-small btn-danger"><i class="fas fa-trash-alt"></i> حذف</button>
+                    </div>
+                </section>
+                <section class="panel-section">
+                    <button id="downloadBtn" class="btn-primary btn-large"><i class="fas fa-download"></i> تحميل الصورة</button>
+                </section>
+            </aside>
+            <section class="preview">
+                <div class="canvas-container">
+                    <div id="loader" class="loader hidden">
+                        <i class="fas fa-spinner fa-spin"></i> جاري المعالجة...
+                    </div>
+                    <canvas id="canvas" width="600" height="600"></canvas>
+                </div>
+                <p class="hint">اسحب الصورة أو النص لتغيير موضعهما</p>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
